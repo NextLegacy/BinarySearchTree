@@ -6,8 +6,15 @@ public class BinarySearchTree<T extends Comparable<T>>
 
     public BinarySearchTree() { }
 
+    public boolean isEmpty()
+    {
+        return root == null || root.is
+    }
+
     public void insert(T data)
     {
+        if (data == null) return;
+
         Node<T>[] nodes = traverseTo(data);
 
         if (nodes[1] != null) return;
@@ -22,6 +29,8 @@ public class BinarySearchTree<T extends Comparable<T>>
 
     public void remove(T data)
     {
+        if (data == null) return;
+        
         Node<T>[] nodes = traverseTo(data);
 
         if (nodes[1] == null) return;
