@@ -36,18 +36,18 @@ public class BinarySearchTree<T extends Comparable<T>>
 
             root.setData(minimum[1].data());
 
-            minimum[0].setLeft(null);
+            minimum[0].setLeft(minimum[1].right());
 
             return;
         }
 
         if (nodes[1].left() != null && nodes[1].right() != null)
         {
-            Node<T>[] maximum = traverseToMinimum(nodes[1].left());
+            Node<T>[] minimum = traverseToMinimum(nodes[1].left());
 
-            nodes[1].setData(maximum[1].data());
+            nodes[1].setData(minimum[1].data());
 
-            maximum[0].setLeft(null); 
+            minimum[0].setLeft(minimum[1].right()); 
 
             return;
         }
@@ -74,23 +74,22 @@ public class BinarySearchTree<T extends Comparable<T>>
         return root == null ? "" : root.toString();
     }
 
-    @SuppressWarnings("unchecked")
     private Node<T>[] traverseTo(T data)
     {
-        Node<T> previous = null;
-        Node<T> current = root;
-
-        while (current != null)
+        @SuppressWarnings("unchecked")
+        Node<T>[] result = new Node[] { null, root };
+        
+        while (result[1] != null)
         {
-            previous = current;
+            result[0] = result[1];
 
-            if (current.data().equals(data)) break;
+            if (result[1].data().equals(data)) break;
 
-            if   (current.data().greaterThan(data)) current = current.left ();
-            else                                    current = current.right();
+            result[1] = result[1].data().greaterThan(data) ? result[1].left() : 
+                                                             result[1].right();
         }
 
-        return new Node[] { previous, current };
+        return result;
     }
 
     @SuppressWarnings("unchecked")
