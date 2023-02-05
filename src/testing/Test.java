@@ -30,7 +30,7 @@ public class Test
 
     public static void main(String[] args)
     {
-        test2();
+        test1();
     }
 
     public static void test1()
@@ -58,11 +58,11 @@ public class Test
     {
         BinarySearchTree<Person> tree = generateRandomTree(100, 2);
 
-        //System.out.println(tree);
+        System.out.println(tree);
 
         tree.remove(new Person("aa"));
 
-        //System.out.println(tree);
+        System.out.println(tree);
     }
 
     // generate n Persons with random names using a random String generator and insert them into a tree, then return the tree
