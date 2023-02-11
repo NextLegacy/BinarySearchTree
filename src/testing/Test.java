@@ -35,13 +35,21 @@ public class Test
 
     public static void test1()
     {
-        Person[] people = new Person[5];
-
-        people[0] = new Person("Mars");
-        people[1] = new Person("Kiste");
-        people[2] = new Person("Zoo");
-        people[3] = new Person("23");
-        people[4] = new Person("#");
+        Person[] people = new Person[]
+        {
+            new Person("Mars"),
+            new Person("Kiste"),
+            new Person("Zoo"),
+            new Person("23"),
+            new Person("#"),
+            new Person("aa"),
+            new Person("Zement"),
+            new Person("Zebra"),
+            new Person("Iglu"),
+            new Person("Kuchen"),
+            new Person("Johannisbeere"),
+            new Person("Dreitausendfünfhundertvierundzwanzig"),
+        };
 
         BinarySearchTree<Person> tree = new BinarySearchTree<Person>();
 
@@ -65,7 +73,6 @@ public class Test
         System.out.println(tree);
     }
 
-    // generate n Persons with random names using a random String generator and insert them into a tree, then return the tree
     public static BinarySearchTree<Person> generateRandomTree(int elements, int nameLength)
     {
         BinarySearchTree<Person> tree = new BinarySearchTree<Person>();
@@ -75,7 +82,6 @@ public class Test
         return tree;
     }
 
-    // generate a random String of length n
     public static String generateRandomString(int nameLength)
     {
         String result = "";
