@@ -1,17 +1,37 @@
 package bst1;
 
-public class Node<T>
+/**
+ * A node in a binary search tree.
+ * 
+ * @param <T> The type of data stored in the node.
+ * 
+ * @author NextLegacy
+ * 
+ * @see BinarySearchTree
+ */
+class Node<T>
 {
+    /** The data stored in the node. */
     private T data;
 
+    /** The left child of the node. */
     private Node<T> left;
+
+    /** The right child of the node. */
     private Node<T> right;
 
-    public Node() { this(null, null, null); }
+    /** 
+     * Creates a new node with no data. 
+     */
+    Node() { this(null, null, null); }
 
-    public Node(T data) { this(data, null, null); }
+    /** Creates a new node with the specified data. */
+    Node(T data) { this(data, null, null); }
 
-    public Node(T data, Node<T> left, Node<T> right)
+    /** 
+     * Creates a new node with the specified data and children. 
+     */
+    Node(T data, Node<T> left, Node<T> right)
     {
         this.data  = data;
         this.left  = left;
@@ -23,6 +43,7 @@ public class Node<T>
     public T data() { return data; }
 
     public Node<T> left () { return left; }
+
     public Node<T> right() { return right; }
 
     public void setData (T       data ) { this.data  = data ; }
